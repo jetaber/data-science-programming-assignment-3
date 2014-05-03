@@ -1,0 +1,17 @@
+{
+    "contents" : "\n\nbest <- function(state, outcome) {\n   ## Read outcome data\n   oocm <- read.csv(\"outcome-of-care-measures.csv\", colClasses = \"character\")\n   \n   #check valid outcome\n   \n   if (! any(c(\"heart attack\", \"heart failure\", \"pneumonia\") == outcome)) {\n      stop (\"invalid outcome\")\n   } \n   \n   #check valid state\n   if (! any(state.abb == state)) {\n      stop (\"invalid state\")\n   }\n   \n   if (outcome == \"heart attack\") {\n      oocm[, 11] <- as.numeric(oocm[, 11])\n\n      #subset on state\n      allOutcomesInState <- subset(oocm,(oocm[7] == state))\n      \n      #get lowest\n      lowestHeartAttackInState <- subset(allOutcomesInState,allOutcomesInState[11] == min(allOutcomesInState[,11],na.rm=TRUE))\n            \n      #sort lowest alphabetically \n      return(sort(lowestHeartAttackInState[,2]))\n   }\n   \n   if (outcome == \"heart failure\") {\n      oocm[, 17] <- as.numeric(oocm[, 17])\n      \n      #subset on state\n      allOutcomesInState <- subset(oocm,(oocm[7] == state))\n      \n      #get lowest\n      lowestHeartFailureInState <- subset(allOutcomesInState,allOutcomesInState[17] == min(allOutcomesInState[,17],na.rm=TRUE))\n      \n      #sort lowest alphabetically \n      print(sort(lowestHeartFailureInState[,2]))\n   }\n   \n   if (outcome == \"pneumonia\") {\n      oocm[, 23] <- as.numeric(oocm[, 23])\n      \n      #subset on state\n      allOutcomesInState <- subset(oocm,(oocm[7] == state))\n      \n      #get lowest\n      lowestPneumoniaInState <- subset(allOutcomesInState,allOutcomesInState[23] == min(allOutcomesInState[,23],na.rm=TRUE))\n      \n      #sort lowest alphabetically \n      print(sort(lowestPneumoniaInState[,2]))\n   }\n   \n   \n   \n  \n   ## Return hospital name in that state with lowest 30-day death\n   ## rate\n   \n   \n   \n   \n}\n",
+    "created" : 1399066128695.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1181600853",
+    "id" : "BF24D21D",
+    "lastKnownWriteTime" : 1399146500,
+    "path" : "D:/workspace/git-local/R/coursera/20140411-data-science/ProgrammingAssignment4/best.R",
+    "project_path" : "best.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

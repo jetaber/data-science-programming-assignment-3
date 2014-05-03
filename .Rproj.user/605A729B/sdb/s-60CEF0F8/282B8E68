@@ -1,0 +1,17 @@
+{
+    "contents" : "outcome <- read.csv(\"outcome-of-care-measures.csv\", colClasses = \"character\")\nhead(outcome)\noutcome[, 11] <- as.numeric(outcome[, 11])\nhist(outcome[, 11])\n",
+    "created" : 1399054934296.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1070280306",
+    "id" : "282B8E68",
+    "lastKnownWriteTime" : 1399066041,
+    "path" : "D:/workspace/git-local/R/coursera/20140411-data-science/ProgrammingAssignment4/outcome.R",
+    "project_path" : "outcome.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

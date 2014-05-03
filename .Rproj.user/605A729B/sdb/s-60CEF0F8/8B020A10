@@ -1,0 +1,17 @@
+{
+    "contents" : "rankhospital <- function(state, outcome, num = \"best\") {\n   ## Read outcome data\n   oocm <- read.csv(\"outcome-of-care-measures.csv\", colClasses = \"character\")\n   \n   #check valid outcome\n   if (! any(c(\"heart attack\", \"heart failure\", \"pneumonia\") == outcome)) {\n      stop (\"invalid outcome\")\n   } \n   \n   #check valid state\n   if (! any(state.abb == state)) {\n      stop (\"invalid state\")\n   }\n   \n   outcomeCol <- 0\n   if (outcome == \"heart attack\") {\n      outcomeCol <- 11\n      oocm[, 11] <- as.numeric(oocm[, 11])\n   } else if (outcome == \"heart failure\") {\n      outcomeCol <- 17\n      oocm[, 17] <- as.numeric(oocm[, 17])\n   } else if (outcome == \"pneumonia\") {\n      outcomeCol <- 23\n      oocm[, 23] <- as.numeric(oocm[, 23])\n   }\n  \n   \n   #subset on state\n   allOutcomesInState <- subset(oocm,(oocm[7] == state))\n   #print(allOutcomesInState[1:10,2])\n   \n   rankedOutcomesInState <- allOutcomesInState[order(allOutcomesInState[,outcomeCol],allOutcomesInState[,2],na.last=NA),]\n  #print(order(allOutcomesInState[,outcomeCol]))\n  \n    rank <- 0\n    if (num == \"best\") rank <- 1\n    else if (num == \"worst\") rank <- nrow(rankedOutcomesInState)\n    else rank <- as.numeric(num)\n  \n   rankedOutcomesInState[rank,2]\n  \n}\n",
+    "created" : 1399066184604.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1908997117",
+    "id" : "8B020A10",
+    "lastKnownWriteTime" : 1399146231,
+    "path" : "D:/workspace/git-local/R/coursera/20140411-data-science/ProgrammingAssignment4/rankhospital.R",
+    "project_path" : "rankhospital.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "source_on_save" : true,
+    "type" : "r_source"
+}

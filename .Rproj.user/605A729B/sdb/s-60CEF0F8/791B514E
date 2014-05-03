@@ -1,0 +1,22 @@
+{
+    "contents" : "",
+    "created" : 1399066427332.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "791B514E",
+    "lastKnownWriteTime" : 7741240722073845761,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "caption" : "outcome",
+        "contentUrl" : "content?title=outcome&file=0ff27b4f6d3943a0b2a07098d6dc3535.htm",
+        "displayedObservations" : "1000",
+        "displayedVariables" : 46,
+        "totalObservations" : "4706",
+        "variables" : "46"
+    },
+    "source_on_save" : false,
+    "type" : "r_dataframe"
+}
